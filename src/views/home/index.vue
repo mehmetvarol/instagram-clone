@@ -1,19 +1,33 @@
 <template>
   <div class="home">
-    <h1>Home</h1>
-    <CustomText tag="p" size="small">Mehmet VAROL</CustomText>
-    <IconHome />
+    <div class="time-line"></div>
+    <div class="sidebar"></div>
   </div>
 </template>
 
 <script>
-import CustomText from '@/components/CustomText'
-import IconHome from '@/assets/icons/home.svg'
 export default {
   name: 'Home',
-  components: {
-    CustomText,
-    IconHome
-  }
+  components: {}
 }
 </script>
+<style scoped>
+.home {
+  max-width: 605px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media (--t) {
+    max-width: none;
+    display: grid;
+    grid-template-columns: 1fr 295px;
+    grid-gap: 30px;
+  }
+}
+.sidebar {
+  display: none;
+  @media (--t) {
+    display: block;
+  }
+}
+</style>
