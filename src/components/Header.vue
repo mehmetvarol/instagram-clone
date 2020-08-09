@@ -50,13 +50,24 @@ export default {
 </script>
 <style scoped>
 .header {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 90;
   border-bottom: 1px solid rgb(var(--b6a));
 }
 .header-inner {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  align-items: center;
   height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media (--t) {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+  }
 }
 .logo {
   font-size: 1.6rem;
@@ -64,6 +75,22 @@ export default {
   text-decoration: none;
 }
 .search {
+  display: none;
+
+  @media (--t) {
+    display: block;
+    text-align: center;
+
+    input {
+      width: 215px;
+      height: 28px;
+      border: 1px solid rgb(var(--b6a));
+      background-color: rgb(var(--b3f));
+      border-radius: 4px;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
   text-align: center;
 
   input {
@@ -77,11 +104,25 @@ export default {
   }
 }
 .navigation {
+  z-index: 90;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fff;
+  height: 120px;
   display: flex;
-  justify-content: flex-end;
   align-items: center;
-  a {
-    margin-left: 20px;
+  justify-content: space-around;
+
+  @media (--t) {
+    height: auto;
+    position: static;
+    justify-content: flex-end;
+    border: 0;
+    a {
+      margin-left: 20px;
+    }
   }
 }
 </style>
